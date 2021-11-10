@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import "./Banner.css"
 
@@ -14,7 +15,9 @@ const Banner = () => {
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <button className="button-29" role="button">Explore More</button>
+                            <Link to="/allproducts">
+                                <button className="button-29" role="button">Explore More</button>
+                            </Link>
                         </div>
 
 
@@ -25,7 +28,9 @@ const Banner = () => {
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <button className="button-29" role="button">Explore More</button>
+                            <Link to="/allproducts">
+                                <button className="button-29" role="button">Explore More</button>
+                            </Link>
                         </div>
 
 
@@ -35,7 +40,9 @@ const Banner = () => {
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <button className="button-29" role="button">Explore More</button>
+                            <Link to="/allproducts">
+                                <button className="button-29" role="button">Explore More</button>
+                            </Link>
                         </div>
 
 
