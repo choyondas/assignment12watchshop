@@ -1,0 +1,16 @@
+.brands{
+    background-image:url("http://www.westernwatches.com/wp-content/uploads/2017/03/shop-banner.jpg");
+    height:300px;
+    border: 2px solid red;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.brand-item{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.brand-item h2{
+    margin: 10px;
+}

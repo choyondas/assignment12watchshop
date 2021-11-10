@@ -1,0 +1,17 @@
+.footer-logo{
+    display: flex;
+    align-items: center;
+}
+.footer{
+background-color: #060912;
+color: white;
+padding: 10px;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    margin-bottom:5px;
+    cursor: pointer;
+
+}
