@@ -1,95 +1,182 @@
+
+import { useForm } from 'react-hook-form';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 import "./PlaceOrder.css"
 
 
+
 const PlaceOrder = () => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { user } = useAuth();
     const { id } = useParams();
-
-
     const [item, setItem] = useState([])
 
 
-
+    //fetch by id
     useEffect(() => {
         const url = `http://localhost:5000/products/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
     }, []);
+
+
+
+    ////onsubmit
+    const onSubmit = data => {
+        // const savedCart = getStoredCart();
+        // data.order = savedCart;
+        console.log(data);
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('Successfully added the user.')
+                    reset()
+                }
+            })
+    };
     return (
-        <div>
-
-            <br />
-            <br />
-            <br />
+        <div className="prod-back">
 
 
-            <div class="container">
-                <div class="card">
-                    <div class="face face1">
-                        <div class="content">
-                            <img className="img-fluid " src={item.img} alt="..." />
-                            <h3>{item.name}</h3>
+
+            <center>
+                <br />
+                <br />
+                <br />
+
+
+                <div class="container">
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img className="img-fluid " src={item.img} alt="..." />
+                                <h3>{item.name}</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>{item.info}</p>
+
+                                <p>${item.price}</p>
+                                <p>Manufacturer: {item.manufacturer}</p>
+                                <p>Brand: {item.brand} </p>
+                                <p>Rating: {item.rating} </p>
+
+
+                                <a href="#">Read More</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="face face2">
-                        <div class="content">
-                            <p>{item.info}</p>
 
-                            <p>${item.price}</p>
-                            <p>Manufacturer: {item.manufacturer}</p>
-                            <p>Brand: {item.brand} </p>
-                            <p>Rating: {item.rating} </p>
-
-
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
                 </div>
+            </center>
+            <div className="formStyle " style={{ backgroundColor: 'white', }}>
+                <center className="w-50  mx-auto" style={{ border: '1px solid red' }}>
 
+                    <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px' }} type="text" defaultValue={item.name} {...register("productName", { required: true })} />
+                        <br />
+                        <input type="text" defaultValue={id} {...register("productId")} />
+                        <br />
+                        <input defaultValue={user.displayName} {...register("username")} />
+                        <br />
+                        <input defaultValue={user.email} {...register("email")} />
+                        <br />
+
+                        <input placeholder="Address" defaultValue="" {...register("address")} />
+                        <br />
+                        <input placeholder="phone" defaultValue="" {...register("phone")} />
+                        <br />
+                        {errors.email && <span className="error">This field is required</span>}
+                        <input className="btn" type="Submit" />
+
+                    </form>
+
+
+
+
+                    {/* <form>
+                        <h3>{item.name}</h3>
+                        <TextField
+                            disabled
+                            sx={{ width: '25%', m: 2 }}
+                            id="outlined-size-small"
+                            defaultValue={id}
+                            size="small"
+                        /><br />
+
+                        <TextField
+                            disabled
+                            sx={{ width: '25%', m: 2 }}
+                            id="outlined-size-small"
+                            defaultValue={user.displayName}
+                            name="patientName"
+
+                            size="small"
+                        /><br />
+                        <TextField
+                            disabled
+                            sx={{ width: '25%', m: 2 }}
+                            id="outlined-size-small"
+                            defaultValue={user.email}
+                            name="email"
+
+                            size="small"
+                        /><br />
+                        <TextField
+
+                            sx={{ width: '25%', m: 2 }}
+                            id="outlined-size-small"
+                            placeholder="your phone"
+                            name="phone"
+
+                            size="small"
+                        /><br />
+                        <TextField
+
+                            sx={{ width: '25%', m: 2 }}
+                            id="outlined-size-small"
+
+                            name="email"
+                            placeholder="your address"
+                            size="small"
+                        /><br />
+                        <TextField
+
+                            sx={{ width: '25%', m: 2 }}
+                            id="outlined-size-small"
+                            placeholder="others"
+                            size="small"
+                        />
+                        <br />
+                        <Button variant="contained">Submit</Button>
+
+                    </form> */}
+
+
+                </center>
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/* <div className="details">
-                <div>
-                    <br /><br />
-                    <h2 className="text-center fw-bold text-black ">{user.name}</h2>
-
-                    <div class="card mb-3">
-                        <img className="img-fluid w-50" src={user.img} class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h2 class="card-title text-warning fw-bold">${user.price}</h2>
-                            <p class="card-text">{user.description}</p>
-
-                            <Link to="/customer">
-                                <button className="btn btn-success  m-3">CONFIRM ORDER</button></Link>
-
-                            {/* <button className="btn" onClick={() => handleDelUser(user._id)} >Cancel</button> */}
-            {/* <Link to="/home">
-                <button className="btn btn-danger  ">CENCLE</button></Link> */}
-
-
-
         </div>
+
+
 
 
     );
 };
 
 export default PlaceOrder;
+
+
+

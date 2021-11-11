@@ -7,7 +7,7 @@ import {
 
 } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
-import Appointment from './Pages/Appointment/Appointment/Appointment';
+
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
@@ -15,6 +15,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import AllProducts from './Pages/Home/AllProducts/AllProducts';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import Error from './Pages/Error/Error';
 
 function App() {
   return (
@@ -28,9 +29,7 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <PrivateRoute path="/appointment">
-              <Appointment></Appointment>
-            </PrivateRoute>
+
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
@@ -50,7 +49,10 @@ function App() {
 
 
 
+            <Route path='*'>
+              <Error></Error>
 
+            </Route>
 
           </Switch>
 

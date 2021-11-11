@@ -7,28 +7,28 @@ const Product = (props) => {
     return (
         <div className="col-lg-4 col-md-6 col-12">
 
-            <div class="container">
-                <div class="card">
-                    <div class="imgBx">
+            <div className="container">
+                <div className="card">
+                    <div className="imgBx">
                         <img className="w-50" src={img} />
                     </div>
-                    <div class="contentBx">
+                    <div className="contentBx">
                         <h2 style={{ color: '#c46212', fontWeight: 'bold', fontSize: "30px" }} >{name}</h2>
-                        <div class="size">
+                        <div className="size">
                             <h3>{des}</h3>
 
                         </div>
-                        <div class="size">
+                        <div className="size">
                             <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#fc890a' }}>${price}</h3>
 
                         </div>
-                        <div class="color">
+                        <div className="color">
                             <h3>Color :</h3>
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
-                        <Link to={`/placeorder/${_id}`}> <button class="button-29 pt-2" role="button">Purches</button>
+                        <Link to={`/placeorder/${_id}`}> <button className="button-29 pt-2" role="button">Purches</button>
                         </Link>
                     </div>
                 </div>

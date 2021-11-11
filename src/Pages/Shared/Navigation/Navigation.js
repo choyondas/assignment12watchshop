@@ -24,7 +24,7 @@ const Navigation = () => {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Dassland
                         </Typography>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/appointment"><Button color="inherit">Appoinment</Button></Link>
+
 
 
                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/allproducts"><Button color="inherit">All Products</Button></Link>
@@ -33,13 +33,13 @@ const Navigation = () => {
                         {
                             user?.email ?
                                 <Box>
+                                    <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">Dashboard</Link>
 
 
-                                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
-                                        <Button color="inherit">Dashboard</Button>
-                                    </NavLink>
 
-                                    <Button onClick={logout} color="inherit">Logout</Button>
+                                    <p>{user.displayName}</p>
+
+                                    <Button type="button" className="btn btn-danger" onClick={logout} color="inherit">Logout</Button>
                                 </Box>
 
 
