@@ -15,7 +15,7 @@ const Banner = () => {
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <Link to="/allproducts">
+                            <Link style={{ textDecoration: 'none' }} to="/allproducts">
                                 <button className="button-29" role="button">Explore More</button>
                             </Link>
                         </div>
@@ -28,7 +28,7 @@ const Banner = () => {
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <Link to="/allproducts">
+                            <Link style={{ textDecoration: 'none' }} to="/allproducts">
                                 <button className="button-29" role="button">Explore More</button>
                             </Link>
                         </div>
@@ -40,7 +40,7 @@ const Banner = () => {
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <Link to="/allproducts">
+                            <Link style={{ textDecoration: 'none' }} to="/allproducts">
                                 <button className="button-29" role="button">Explore More</button>
                             </Link>
                         </div>

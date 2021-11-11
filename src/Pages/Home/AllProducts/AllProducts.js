@@ -1,8 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import ShowAllProducts from '../ShowAllProducts/ShowAllProducts';
 
-
+import "./AllProducts.css"
 
 
 const AllProducts = () => {
@@ -15,22 +16,37 @@ const AllProducts = () => {
     }, []);
 
     return (
-        <div className="container mt-5">
-            <h1 id="h1provided" >Our Products</h1>
-            <div id="service-back" className="row ">
-                {
-                    products.map(product => <ShowAllProducts
-                        key={product._id}
-                        product={product}
-                    ></ShowAllProducts>
+        <div className="allProducts">
+            <div className="container mt-5">
+                <h1 id="h1provided" >Our Products</h1>
+                <div id="service-back" className="row row-cols-1 row-cols-md-3 g-4">
+                    {
+                        products.map(product => <ShowAllProducts
+                            key={product._id}
+                            product={product}
+                        ></ShowAllProducts>
 
 
 
-                    )
+                        )
 
-                }
+                    }
+                </div>
+
+                <div className="text-center p-5">
+
+                    <NavLink to="/home">
+                        <button class="button-82-pushable" role="button">
+                            <span class="button-82-shadow"></span>
+                            <span class="button-82-edge"></span>
+                            <span class="button-82-front text">
+                                Go Home Page
+                            </span>
+                        </button>
+                    </NavLink>
+                </div>
+
             </div>
-
         </div>
     );
 };

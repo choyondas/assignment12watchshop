@@ -1,19 +1,23 @@
 import React from 'react';
 import "./ShowAllProducts.css"
 const ShowAllProducts = (props) => {
-    const { name, img, description } = props.product;
+    const { name, img, price, description } = props.product;
     return (
         <div className="col-lg-4 col-md-6 col-12">
 
             <div class="container">
                 <div class="card">
                     <div class="imgBx">
-                        <img src={img} />
+                        <img className="w-50" src={img} />
                     </div>
                     <div class="contentBx">
-                        <h2>{name}</h2>
+                        <h2 style={{ color: '#c46212', fontWeight: 'bold', fontSize: "30px" }} >{name}</h2>
                         <div class="size">
-                            <p>{description}</p>
+                            <h3>{description}</h3>
+
+                        </div>
+                        <div class="size">
+                            <h3>${price}</h3>
 
                         </div>
                         <div class="color">
@@ -22,10 +26,15 @@ const ShowAllProducts = (props) => {
                             <span></span>
                             <span></span>
                         </div>
-                        <a href="#"><button class="button-29" role="button">Buy Now</button></a>
+                        <br />
+                        <a href="#"><button class="button-29 pt-2" role="button">Buy Now</button></a>
                     </div>
                 </div>
             </div>
+
+
+
+
         </div>
     );
 };
