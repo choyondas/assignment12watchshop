@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Product.css'
 const Product = (props) => {
-    const { name, img, description, price } = props.product;
+    const { _id, name, img, description, price } = props.product;
     const des = description.slice(0, 100);
     return (
         <div className="col-lg-4 col-md-6 col-12">
@@ -27,7 +28,8 @@ const Product = (props) => {
                             <span></span>
                             <span></span>
                         </div>
-                        <a href="#"><button class="button-29 pt-2" role="button">Buy Now</button></a>
+                        <Link to={`/placeorder/${_id}`}> <button class="button-29 pt-2" role="button">Purches</button>
+                        </Link>
                     </div>
                 </div>
             </div>
