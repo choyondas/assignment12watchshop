@@ -32,7 +32,7 @@ const drawerWidth = 240;
 
 function Dashboard(props) {
 
-
+    const { admin } = useAuth();
     const { user, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -48,40 +48,48 @@ function Dashboard(props) {
 
             <Divider />
 
-            <Link to="/allproducts">
-                <Button variant="contained"> All Products</Button>
 
-            </Link>
-            <br /><br />
-            <Link to="/">
-                <Button variant="contained"> Home Page</Button>
+            {admin && <Box>
+                <Link to={`${url}/makeAdmin`}>
+                    <Button variant="contained"> Make Admin</Button>
 
-            </Link>
-            <br /><br />
-            <Link to={`${url}`}>
-                <Button variant="contained"> Dashboard</Button>
+                </Link>
+                <br /><br />
+                <Link to={`${url}/addProduct`}>
+                    <Button variant="contained">Add Products</Button>
 
-            </Link>
-            <br /><br />
-            <Link to={`${url}/makeAdmin`}>
-                <Button variant="contained"> Make Admin</Button>
+                </Link>
+                <Link to="/allproducts">
+                    <Button variant="contained"> All Products</Button>
 
-            </Link>
-            <br /><br />
-            <Link to={`${url}/addProduct`}>
-                <Button variant="contained">Add Products</Button>
+                </Link>
 
-            </Link>
-            <br /><br />
-            <Link to={`${url}/pay`}>
-                <Button variant="contained">Pay</Button>
 
-            </Link>
-            <br /><br />
-            <Link to={`${url}/review`}>
-                <Button variant="contained">Review</Button>
+                <br /><br />
+            </Box>}
 
-            </Link>
+            {!admin && <Box>
+                <br /><br />
+                <Link to={`${url}`}>
+                    <Button variant="contained"> My orders</Button>
+
+                </Link>
+                <br /><br />
+                <Link to="/">
+                    <Button variant="contained"> Home Page</Button>
+
+                </Link>
+                <br /><br />
+                <Link to={`${url}/pay`}>
+                    <Button variant="contained">Pay</Button>
+
+                </Link>
+                <br /><br />
+                <Link to={`${url}/review`}>
+                    <Button variant="contained">Review</Button>
+
+                </Link>
+            </Box>}
         </div>
     );
 
