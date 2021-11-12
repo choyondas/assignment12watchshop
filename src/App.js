@@ -16,7 +16,8 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import AllProducts from './Pages/Home/AllProducts/AllProducts';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import Error from './Pages/Error/Error';
-import Review from './Pages/Review/Review';
+
+import ShowReview from './Pages/Home/Home/ShowReview/ShowReview';
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
               <AllProducts></AllProducts>
             </Route>
             <Route path="/review">
-              <Review></Review>
+              <ShowReview></ShowReview>
             </Route>
 
             <PrivateRoute exact path="/placeorder/:id">
