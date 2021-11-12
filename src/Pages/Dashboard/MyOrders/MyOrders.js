@@ -65,7 +65,7 @@ const MyOrders = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
 
-                                <TableCell align="right">{order.username}</TableCell>
+
                                 <TableCell align="right">{order.username}</TableCell>
                                 <TableCell align="right">{order.email}</TableCell>
                                 <TableCell align="right">{order.productName}</TableCell>
