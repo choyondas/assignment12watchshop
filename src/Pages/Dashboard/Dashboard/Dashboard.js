@@ -6,48 +6,82 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
-import MyOrders from '../MyOrders/MyOrders';
-import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import OrdersInfo from '../OrdersInfo/OrdersInfo';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProduct from '../AddProduct/AddProduct';
+import Pay from '../../Pay/Pay';
+import useAuth from '../../../Hooks/useAuth';
+import Review from '../../Review/Review';
+
+
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
+
+
+    const { user, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-
+    let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
-        <div>
+        <div className="container ">
             <Toolbar />
-            <Link to="/allproducts">
-                All Products
-            </Link>
+
 
             <Divider />
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
 
+            <Link to="/allproducts">
+                <Button variant="contained"> All Products</Button>
+
+            </Link>
+            <br /><br />
+            <Link to="/">
+                <Button variant="contained"> Home Page</Button>
+
+            </Link>
+            <br /><br />
+            <Link to={`${url}`}>
+                <Button variant="contained"> Dashboard</Button>
+
+            </Link>
+            <br /><br />
+            <Link to={`${url}/makeAdmin`}>
+                <Button variant="contained"> Make Admin</Button>
+
+            </Link>
+            <br /><br />
+            <Link to={`${url}/addProduct`}>
+                <Button variant="contained">Add Products</Button>
+
+            </Link>
+            <br /><br />
+            <Link to={`${url}/pay`}>
+                <Button variant="contained">Pay</Button>
+
+            </Link>
+            <br /><br />
+            <Link to={`${url}/review`}>
+                <Button variant="contained">Review</Button>
+
+            </Link>
         </div>
     );
 
@@ -76,6 +110,25 @@ function Dashboard(props) {
                     <Typography variant="h6" noWrap component="div">
                         Dashboard
                     </Typography>
+
+                    <div style={{ marginLeft: "40%" }}>
+                        {
+                            user?.email &&
+                            <Box className="d-flex">
+
+
+
+                                <button className="btn btn-primary"> {user.displayName}</button>
+
+                                <Button type="button" className="btn btn-danger" onClick={logout} color="inherit">Logout</Button>
+                            </Box>
+
+
+
+                        }
+
+                    </div>
+
                 </Toolbar>
             </AppBar>
             <Box
@@ -115,18 +168,26 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={12} md={4}>
-                            <img className="img-fluid" src="https://i.ibb.co/h29CpKX/294-2946413-we-send-your-order-plus-an-additional-surprise-vector-graphics-removebg-preview.png" alt="" />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={8}>
-                            <MyOrders></MyOrders>
-                        </Grid>
+                <Switch>
+                    <Route exact path={path}>
+                        <OrdersInfo></OrdersInfo>
+                    </Route>
+                    <Route path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </Route>
+                    <Route path={`${path}/pay`}>
+                        <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/review`}>
+                        <Review></Review>
+                    </Route>
+
+                </Switch>
 
 
-                    </Grid>
-                </Typography>
 
             </Box>
         </Box>
