@@ -21,7 +21,24 @@ const MyOrders = () => {
 
 
     // handle delete function
-
+    // handle delete function 
+    const handleDelUser = id => {
+        const proceed = window.confirm('Are you want to delete?');
+        if (proceed) {
+            const url = `http://localhost:5000/orders/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully')
+                        const remainUser = orders.filter(order => order._id !== id);
+                        setOrders(remainUser);
+                    }
+                })
+        }
+    }
 
 
     return (
@@ -38,21 +55,23 @@ const MyOrders = () => {
                             <TableCell align="right">Product Name</TableCell>
                             <TableCell align="right">Address</TableCell>
                             <TableCell align="right">Phone</TableCell>
+                            <TableCell align="right">Delete Option</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {orders.map((row) => (
+                        {orders.map((order) => (
                             <TableRow
-                                key={row.productId}
+                                key={order.productId}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
 
-                                <TableCell align="right">{row.username}</TableCell>
-                                <TableCell align="right">{row.email}</TableCell>
-                                <TableCell align="right">{row.productName}</TableCell>
-                                <TableCell align="right">{row.address}</TableCell>
-                                <TableCell align="right">{row.phone}</TableCell>
-                                {/* <TableCell align="right"><button className="btn" onClick={() => handleDelUser(user._id)} >Delete</button></TableCell> */}
+                                <TableCell align="right">{order.username}</TableCell>
+                                <TableCell align="right">{order.username}</TableCell>
+                                <TableCell align="right">{order.email}</TableCell>
+                                <TableCell align="right">{order.productName}</TableCell>
+                                <TableCell align="right">{order.address}</TableCell>
+                                <TableCell align="right">{order.phone}</TableCell>
+                                <TableCell align="right"><button className="btn" onClick={() => handleDelUser(order._id)} >Delete</button></TableCell>
 
                             </TableRow>
                         ))}

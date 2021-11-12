@@ -17,6 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import MyOrders from '../MyOrders/MyOrders';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -31,6 +32,10 @@ function Dashboard(props) {
     const drawer = (
         <div>
             <Toolbar />
+            <Link to="/allproducts">
+                All Products
+            </Link>
+
             <Divider />
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (

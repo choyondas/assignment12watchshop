@@ -1,4 +1,5 @@
 import React from 'react';
+import Review from '../../Review/Review';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 // import ApointmentBanner from '../ApointmentBanner/ApointmentBanner';
@@ -21,6 +22,7 @@ const Home = () => {
 
 
             <Designer></Designer>
+            <Review></Review>
             <Subscribe></Subscribe>
             <Footer></Footer>
         </div>
