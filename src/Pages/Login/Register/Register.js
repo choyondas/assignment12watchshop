@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { Alert, Button, CircularProgress, Container, TextField, Typography } from '@mui/material';
-import login from '../../../images/login.png'
+
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 const Register = () => {
@@ -82,10 +82,15 @@ const Register = () => {
 
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} >
-                    <img style={{ width: '100%', height: 'auto' }} src={login} alt="" />
+                    <img src="https://i.ibb.co/BGwNhpM/login.png" alt="" />
                 </Grid>
 
             </Grid>
+            <center>
+                <NavLink to="/">
+                    <Button variant="contained">Go Home Page</Button>
+                </NavLink>
+            </center>
         </Container >
     );
 };

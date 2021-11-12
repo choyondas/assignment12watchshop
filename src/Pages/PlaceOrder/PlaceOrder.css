@@ -176,5 +176,10 @@
     border-radius: 10px;
     padding: 2px;
   }
-  
+  .formBack{
+    background-image: url("https://i.pinimg.com/originals/95/c8/f0/95c8f0ef171fa612f2889888e293f4c0.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
  

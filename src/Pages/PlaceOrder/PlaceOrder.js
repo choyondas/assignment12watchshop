@@ -80,88 +80,30 @@ const PlaceOrder = () => {
 
                 </div>
             </center>
-            <div className="formStyle " style={{ backgroundColor: 'white', }}>
+            <div className="formStyle formBack ">
                 <center className="w-50  mx-auto" style={{ border: '1px solid red' }}>
 
                     <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px' }} type="text" defaultValue={item.name} {...register("productName", { required: true })} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} type="text" defaultValue={item.name} {...register("productName", { required: true })} />
                         <br />
-                        <input type="text" defaultValue={id} {...register("productId")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} type="text" defaultValue={id} {...register("productId")} />
                         <br />
-                        <input defaultValue={user.displayName} {...register("username")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} defaultValue={user.displayName} {...register("username")} />
                         <br />
-                        <input defaultValue={user.email} {...register("email")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} defaultValue={user.email} {...register("email")} />
                         <br />
 
-                        <input placeholder="Address" defaultValue="" {...register("address")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} placeholder="Address" defaultValue="" {...register("address", { required: true })} />
                         <br />
-                        <input placeholder="phone" defaultValue="" {...register("phone")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} placeholder="phone" defaultValue="" {...register("phone", { required: true })} />
                         <br />
                         {errors.email && <span className="error">This field is required</span>}
-                        <input className="btn" type="Submit" />
+                        <input className="btn btn-success" type="Submit" />
 
                     </form>
 
 
 
-
-                    {/* <form>
-                        <h3>{item.name}</h3>
-                        <TextField
-                            disabled
-                            sx={{ width: '25%', m: 2 }}
-                            id="outlined-size-small"
-                            defaultValue={id}
-                            size="small"
-                        /><br />
-
-                        <TextField
-                            disabled
-                            sx={{ width: '25%', m: 2 }}
-                            id="outlined-size-small"
-                            defaultValue={user.displayName}
-                            name="patientName"
-
-                            size="small"
-                        /><br />
-                        <TextField
-                            disabled
-                            sx={{ width: '25%', m: 2 }}
-                            id="outlined-size-small"
-                            defaultValue={user.email}
-                            name="email"
-
-                            size="small"
-                        /><br />
-                        <TextField
-
-                            sx={{ width: '25%', m: 2 }}
-                            id="outlined-size-small"
-                            placeholder="your phone"
-                            name="phone"
-
-                            size="small"
-                        /><br />
-                        <TextField
-
-                            sx={{ width: '25%', m: 2 }}
-                            id="outlined-size-small"
-
-                            name="email"
-                            placeholder="your address"
-                            size="small"
-                        /><br />
-                        <TextField
-
-                            sx={{ width: '25%', m: 2 }}
-                            id="outlined-size-small"
-                            placeholder="others"
-                            size="small"
-                        />
-                        <br />
-                        <Button variant="contained">Submit</Button>
-
-                    </form> */}
 
 
                 </center>
