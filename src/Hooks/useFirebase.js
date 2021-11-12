@@ -63,18 +63,6 @@ const useFirebase = () => {
     }
 
 
-    // const signInWithGoogle = (location, history) => {
-    //     setIsLoading(true)
-    //     signInWithPopup(auth, googleProvider)
-    //         .then((result) => {
-
-    //             const user = result.user;
-    //             setAuthError('');
-    //         }).catch((error) => {
-    //             setAuthError(error.message);
-    //         }).finally(() => setIsLoading(false));
-    // }
-
 
 
     const signInWithGoogle = (location, history) => {

@@ -13,13 +13,13 @@ const Navigation = () => {
     const { user, logout } = useAuth();
 
     return (
-        <Box sx={{ bgcolor: 'text.secondary' }}>
+        <Box sx={{}}>
 
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
 
-                        <img width="80px" src="https://i.ibb.co/d2Hk8Rr/logo1.png" alt="" />
+                        <img width="40px" src="https://i.ibb.co/d2Hk8Rr/logo1.png" alt="" />
 
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Dassland
@@ -27,7 +27,7 @@ const Navigation = () => {
 
 
 
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/allproducts"><Button color="inherit">All Products</Button></Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/allproducts">Products</Link>
 
 
                         {
@@ -37,9 +37,8 @@ const Navigation = () => {
 
                                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard"><Button color="inherit">Dashboard</Button></Link>
 
+                                    <Button type="button" color="inherit">{user.displayName}</Button>
 
-
-                                    <button className="btn btn-primary"> {user.displayName}</button>
 
                                     <Button type="button" className="btn btn-danger" onClick={logout} color="inherit">Logout</Button>
                                 </Box>

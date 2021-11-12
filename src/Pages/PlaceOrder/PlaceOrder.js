@@ -65,15 +65,13 @@ const PlaceOrder = () => {
                         </div>
                         <div class="face face2">
                             <div class="content">
-                                <p>{item.info}</p>
+                                <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Description:</span> {item.description}</p>
 
-                                <p>${item.price}</p>
-                                <p>Manufacturer: {item.manufacturer}</p>
-                                <p>Brand: {item.brand} </p>
-                                <p>Rating: {item.rating} </p>
-
-
-                                <a href="#">Read More</a>
+                                <br />
+                                <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Manufacture:</span>  {item.manufacturer}</p>
+                                <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Brand:</span>  {item.brand} </p>
+                                <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Rating:</span>  {item.rating} </p>
+                                <h3 style={{ color: "#c46212" }}>${item.price}</h3>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Navigation from '../../Shared/Navigation/Navigation';
 import ShowAllProducts from '../ShowAllProducts/ShowAllProducts';
 
 import "./AllProducts.css"
@@ -17,6 +18,7 @@ const AllProducts = () => {
 
     return (
         <div className="allProducts">
+            <Navigation></Navigation>
             <div className="container mt-5">
                 <h1 style={{ color: '#c46212', fontSize: '60px', padding: '10px', justifyContent: 'center', display: 'flex' }}>  Our Products</h1>
                 <div className="row row-cols-1 row-cols-md-3 g-4">

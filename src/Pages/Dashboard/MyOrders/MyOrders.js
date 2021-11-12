@@ -51,7 +51,7 @@ const MyOrders = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Customer Name</TableCell>
-                            <TableCell align="right">Customer Email</TableCell>
+                            {/* <TableCell align="right">Customer Email</TableCell> */}
                             <TableCell align="right">Product Name</TableCell>
                             <TableCell align="right">Address</TableCell>
                             <TableCell align="right">Phone</TableCell>
@@ -65,7 +65,7 @@ const MyOrders = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align="right">{order.username}</TableCell>
-                                <TableCell align="right">{order.email}</TableCell>
+                                {/* <TableCell align="right">{order.email}</TableCell> */}
                                 <TableCell align="right">{order.productName}</TableCell>
                                 <TableCell align="right">{order.address}</TableCell>
                                 <TableCell align="right">{order.phone}</TableCell>
