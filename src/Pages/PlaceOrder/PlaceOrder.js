@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import "./PlaceOrder.css"
+import Rating from 'react-rating';
 
 
 
@@ -70,33 +71,48 @@ const PlaceOrder = () => {
                                 <br />
                                 <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Manufacture:</span>  {item.manufacturer}</p>
                                 <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Brand:</span>  {item.brand} </p>
-                                <p><span style={{ color: "#c46212", fontWeight: "bold" }}>Rating:</span>  {item.rating} </p>
+
+
+
+                                <div>
+                                    <Rating
+                                        initialRating={item.rating}
+                                        emptySymbol="far fa-star icon-color"
+                                        fullSymbol="fas fa-star icon-color"
+                                        readonly
+
+                                    />
+                                </div>
+
                                 <h3 style={{ color: "#c46212" }}>${item.price}</h3>
                             </div>
                         </div>
+
+
+
                     </div>
 
                 </div>
             </center>
             <div className="formStyle formBack ">
-                <center className="w-50  mx-auto" style={{ border: '1px solid red' }}>
+                <center className="w-50  mx-auto" style={{ backgroundColor: '#232323', padding: '40px 10px', borderRadius: '10px' }}>
 
                     <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} type="text" defaultValue={item.name} {...register("productName", { required: true })} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none', padding: '5px 10px' }} type="text" defaultValue={item.name} {...register("productName", { required: true })} />
                         <br />
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} type="text" defaultValue={id} {...register("productId")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none', padding: '5px 10px' }} type="text" defaultValue={id} {...register("productId")} />
                         <br />
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} defaultValue={user.displayName} {...register("username")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none', padding: '5px 10px' }} defaultValue={user.displayName} {...register("username")} />
                         <br />
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} defaultValue={user.email} {...register("email")} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none', padding: '5px 10px' }} defaultValue={user.email} {...register("email")} />
                         <br />
 
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} placeholder="Address" defaultValue="" {...register("address", { required: true })} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none', padding: '5px 10px' }} placeholder="Address" defaultValue="" {...register("address", { required: true })} />
                         <br />
-                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none' }} placeholder="phone" defaultValue="" {...register("phone", { required: true })} />
+                        <input style={{ width: '75%', lineHeight: '30px', margin: '10px', borderRadius: '6px', border: 'none', padding: '5px 10px' }} placeholder="phone" defaultValue="" {...register("phone", { required: true })} />
                         <br />
                         {errors.email && <span className="error">This field is required</span>}
-                        <input className="btn btn-success" type="Submit" />
+                        <input style={{ color: "white", backgroundColor: "#c46212", padding: '10px', border: 'none', borderRadius: '10px', fontSize: '16px', fontWeight: 'bold' }} type="Submit" />
 
                     </form>
 

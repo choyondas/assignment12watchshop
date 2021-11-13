@@ -15,7 +15,7 @@
 }
 
 .container .card .face{
-    width: 350px;
+    width: 600px;
     height: 200px;
     transition: 0.5s;
 }
@@ -181,5 +181,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 50px;
   }
  

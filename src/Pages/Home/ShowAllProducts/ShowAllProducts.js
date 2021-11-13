@@ -1,8 +1,9 @@
 import React from 'react';
+import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import "./ShowAllProducts.css"
 const ShowAllProducts = (props) => {
-    const { _id, name, img, price, description, info } = props.product;
+    const { _id, name, img, price, description, info, rating } = props.product;
     return (
         <div className="col-lg-4 col-md-6 col-12">
 
@@ -17,15 +18,18 @@ const ShowAllProducts = (props) => {
                             <h3>{description}</h3>
 
                         </div>
-                        <div class="size">
-                            <h3>${price}</h3>
+                        <div className="size">
+                            <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#fc890a' }}>${price}</h3>
 
                         </div>
-                        <div class="color">
-                            <h3>Color :</h3>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                        <div>
+                            <Rating
+                                initialRating={rating}
+                                emptySymbol="far fa-star icon-color"
+                                fullSymbol="fas fa-star icon-color"
+                                readonly
+
+                            />
                         </div>
                         <br />
                         <Link to={`/placeorder/${_id}`}> <button class="button-29 pt-2" role="button">Purches</button></Link>

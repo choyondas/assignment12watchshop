@@ -1,8 +1,10 @@
+
 import React from 'react';
+import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import './Product.css'
 const Product = (props) => {
-    const { _id, name, img, description, price } = props.product;
+    const { _id, name, img, description, price, rating } = props.product;
     const des = description.slice(0, 100);
     return (
         <div className="col-lg-4 col-md-6 col-12">
@@ -22,11 +24,14 @@ const Product = (props) => {
                             <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#fc890a' }}>${price}</h3>
 
                         </div>
-                        <div className="color">
-                            <h3>Color :</h3>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                        <div>
+                            <Rating
+                                initialRating={rating}
+                                emptySymbol="far fa-star icon-color"
+                                fullSymbol="fas fa-star icon-color"
+                                readonly
+
+                            />
                         </div>
                         <Link to={`/placeorder/${_id}`}> <button className="button-29 pt-2" role="button">Purches</button>
                         </Link>
