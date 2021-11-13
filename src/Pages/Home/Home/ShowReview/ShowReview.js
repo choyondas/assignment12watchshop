@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Rating from 'react-rating';
 import "./ShowReview.css"
 
 
@@ -25,13 +26,22 @@ const ShowReview = () => {
                         review.map(rev =>
 
                             <div class="card-deck col-lg-4 col-md-6 col-12">
-                                <div class="card">
+                                <div class="card mb-4">
                                     <img class="card-img-top" src={rev.image} />
                                     <div class="card-body">
                                         <h5 class="card-title">Customer: {rev.username}</h5>
                                         <p class="card-text">{rev.suggestion}</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        <p>{rev.rating}</p>
+
+
+                                        <div>
+                                            <Rating
+                                                initialRating={rev.rating}
+                                                emptySymbol="far fa-star icon-color"
+                                                fullSymbol="fas fa-star icon-color"
+                                                readonly
+
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 

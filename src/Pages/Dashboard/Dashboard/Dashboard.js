@@ -25,6 +25,9 @@ import AddProduct from '../AddProduct/AddProduct';
 import Pay from '../../Pay/Pay';
 import useAuth from '../../../Hooks/useAuth';
 import Review from '../../Review/Review';
+import Manager from './Manager/Manager';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 
 
@@ -50,28 +53,43 @@ function Dashboard(props) {
 
 
             {admin && <Box>
+
+
+                <Link to={`${url}`}>
+                    <Button variant="contained"> Dashboard</Button>
+
+                </Link>
+                <br /><br />
                 <Link to={`${url}/makeAdmin`}>
                     <Button variant="contained"> Make Admin</Button>
 
                 </Link>
+
                 <br /><br />
                 <Link to={`${url}/addProduct`}>
                     <Button variant="contained">Add Products</Button>
 
                 </Link>
-                <Link to="/allproducts">
-                    <Button variant="contained"> All Products</Button>
+                <br /><br />
+
+
+                <Link to={`${url}/manageOrders`}>
+                    <Button variant="contained">Manage Orders</Button>
 
                 </Link>
+                <br /><br />
 
+                <Link to={`${url}/manageProducts`}>
+                    <Button variant="contained">Manage Products</Button>
 
+                </Link>
                 <br /><br />
             </Box>}
 
             {!admin && <Box>
                 <br /><br />
                 <Link to={`${url}`}>
-                    <Button variant="contained"> My orders</Button>
+                    <Button variant="contained"> Dashboard</Button>
 
                 </Link>
                 <br /><br />
@@ -84,6 +102,12 @@ function Dashboard(props) {
                     <Button variant="contained">Pay</Button>
 
                 </Link>
+                <br /><br />
+                <Link to={`${url}/ordersInfo`}>
+                    <Button variant="contained">Orders info</Button>
+
+                </Link>
+
                 <br /><br />
                 <Link to={`${url}/review`}>
                     <Button variant="contained">Review</Button>
@@ -178,10 +202,13 @@ function Dashboard(props) {
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                        <OrdersInfo></OrdersInfo>
+                        <Manager></Manager>
                     </Route>
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/ordersInfo`}>
+                        <OrdersInfo></OrdersInfo>
                     </Route>
                     <Route path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
@@ -191,6 +218,12 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/review`}>
                         <Review></Review>
+                    </Route>
+                    <Route path={`${path}/manageOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </Route>
+                    <Route path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
                     </Route>
 
                 </Switch>

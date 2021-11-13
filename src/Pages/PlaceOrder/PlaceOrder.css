@@ -15,7 +15,7 @@
 }
 
 .container .card .face{
-    width: 600px;
+    width: 550px;
     height: 200px;
     transition: 0.5s;
 }
@@ -45,11 +45,11 @@
 }
 
 .container .card .face.face1 .content img{
-    max-width: 100px;
+    max-width: 130px;
 }
 
 .container .card .face.face1 .content h3{
-    margin: 10px 0 0;
+    /* margin: 20px 0 0; */
     padding: 0;
     color: #fff;
     text-align: center;
