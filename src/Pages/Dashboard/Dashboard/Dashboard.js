@@ -6,12 +6,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 
@@ -45,7 +44,7 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div className="container ">
+        <div className="container  ">
             <Toolbar />
 
 
@@ -123,6 +122,7 @@ function Dashboard(props) {
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar
+                style={{ backgroundColor: '#4c92f7' }}
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },

@@ -18,6 +18,7 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import Error from './Pages/Error/Error';
 
 import ShowReview from './Pages/Home/Home/ShowReview/ShowReview';
+import UpdateOrder from './Pages/Dashboard/UpdateOrder/UpdateOrder';
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
+
+            <PrivateRoute path="/orders/update/:id">
+              <UpdateOrder></UpdateOrder>
+            </PrivateRoute>
+
             <Route path="/login">
               <Login></Login>
             </Route>

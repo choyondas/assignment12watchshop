@@ -34,6 +34,8 @@ const MakeAdmin = () => {
 
     return (
         <div className="text-center">
+            <img width="30%" className="img-fluid" src="https://i.ibb.co/xMHRdGt/admin-removebg-preview.png" alt="" />
+
             <h2>make an admin</h2>
             <form onSubmit={handleAdminSubmit}>
                 <TextField
