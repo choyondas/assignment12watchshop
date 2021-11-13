@@ -32,7 +32,7 @@ const UpdateOrder = () => {
     const hanAddressChange = e => {
         const updateAddress = e.target.value;
         // const updateUser = { ...user }; 
-        const updateUser = { name: user.name, address: updateAddress }
+        const updateUser = { username: user.username, address: updateAddress }
         setUser(updateUser);
     }
 
@@ -67,11 +67,11 @@ const UpdateOrder = () => {
                         <form onSubmit={handleUpdataUser}>
                             <span>name</span> <br /> <input className="p-2 m-3" type="text" onChange={hanNameChange} value={user.username} /><br />
 
-                            <span>Product name</span><br /> <input className="p-2 m-3" type="text" onChange={hanAddressChange} value={user.productName} /><br />
+                            <span>Product name</span><br /> <input className="p-2 m-3" type="text" defaultValue={user.productName} /><br />
 
                             <span>Address</span><br /><input className="p-2 m-3" type="text" onChange={hanAddressChange} value={user.address} /><br />
 
-                            <span>Phone</span><br /> <input className="p-2 m-3" type="text" onChange={hanAddressChange} value={user.phone} /><br />
+                            <span>Phone</span><br /> <input className="p-2 m-3" type="text" defalutValue={user.phone} /><br />
 
 
 
