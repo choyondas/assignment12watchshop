@@ -39,7 +39,7 @@ const UpdateOrder = () => {
 
     // update user function handle 
     const handleUpdataUser = e => {
-        const url = `https://calm-mountain-94384.herokuapp.com/orders/${id}`;
+        const url = `http://localhost:5000/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
