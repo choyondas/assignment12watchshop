@@ -16,7 +16,7 @@ const Navigation = () => {
         <Box sx={{}}>
 
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
+                <AppBar style={{ background: '#283f51' }} position="static">
                     <Toolbar>
 
                         <img width="40px" src="https://i.ibb.co/d2Hk8Rr/logo1.png" alt="" />

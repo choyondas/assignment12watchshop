@@ -52,10 +52,10 @@ const MyOrders = () => {
                         <TableRow>
                             <TableCell>Customer Name</TableCell>
                             {/* <TableCell align="right">Customer Email</TableCell> */}
-                            <TableCell align="right">Product Name</TableCell>
-                            <TableCell align="right">Address</TableCell>
-                            <TableCell align="right">Phone</TableCell>
-                            <TableCell align="right">Delete Option</TableCell>
+                            <TableCell >Product Name</TableCell>
+                            <TableCell >Address</TableCell>
+                            <TableCell >Phone</TableCell>
+                            <TableCell ></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -64,12 +64,12 @@ const MyOrders = () => {
                                 key={order.productId}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell align="right">{order.username}</TableCell>
-                                {/* <TableCell align="right">{order.email}</TableCell> */}
-                                <TableCell align="right">{order.productName}</TableCell>
-                                <TableCell align="right">{order.address}</TableCell>
-                                <TableCell align="right">{order.phone}</TableCell>
-                                <TableCell align="right"><button className="btn" onClick={() => handleDelUser(order._id)} >Delete</button></TableCell>
+                                <TableCell >{order.username}</TableCell>
+
+                                <TableCell >{order.productName}</TableCell>
+                                <TableCell >{order.address}</TableCell>
+                                <TableCell >{order.phone}</TableCell>
+                                <TableCell ><button className="btn btn-danger" onClick={() => handleDelUser(order._id)} >Delete</button></TableCell>
 
                             </TableRow>
                         ))}

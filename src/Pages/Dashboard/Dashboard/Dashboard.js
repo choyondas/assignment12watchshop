@@ -104,7 +104,7 @@ function Dashboard(props) {
                 </Link>
                 <br /><br />
                 <Link to={`${url}/ordersInfo`}>
-                    <Button variant="contained">Orders info</Button>
+                    <Button variant="contained">My Orders</Button>
 
                 </Link>
 

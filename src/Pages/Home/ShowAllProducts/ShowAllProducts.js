@@ -3,7 +3,7 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import "./ShowAllProducts.css"
 const ShowAllProducts = (props) => {
-    const { _id, name, img, price, description, info, rating } = props.product;
+    const { _id, name, img, price, description, rating } = props.product;
     return (
         <div className="col-lg-4 col-md-6 col-12">
 
