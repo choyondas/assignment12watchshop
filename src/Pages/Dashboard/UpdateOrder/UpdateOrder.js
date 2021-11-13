@@ -10,7 +10,7 @@ const UpdateOrder = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://calm-mountain-94384.herokuapp.com/orders/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setUser(data))
@@ -39,7 +39,7 @@ const UpdateOrder = () => {
 
     // update user function handle 
     const handleUpdataUser = e => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://calm-mountain-94384.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

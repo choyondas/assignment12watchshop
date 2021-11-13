@@ -10,7 +10,7 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders/all')
+        fetch('https://calm-mountain-94384.herokuapp.com/orders/all')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, []);
@@ -19,7 +19,7 @@ const ManageAllOrders = () => {
     const handleDelorder = id => {
         const proceed = window.confirm('Are you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/all/${id}`;
+            const url = `https://calm-mountain-94384.herokuapp.com/orders/all/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
