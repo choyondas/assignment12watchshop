@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 const AddProduct = () => {
 
     const { register, handleSubmit, reset } = useForm();
+    
     const onSubmit = data => {
         console.log(data);
         axios.post('https://calm-mountain-94384.herokuapp.com/products', data)

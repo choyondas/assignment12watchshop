@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 
 const MyOrders = () => {
     const { user } = useAuth();
+  
     const [orders, setOrders] = useState([]);
     useEffect(() => {
         const url = `https://calm-mountain-94384.herokuapp.com/orders?email=${user.email}`
